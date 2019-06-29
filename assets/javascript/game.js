@@ -5,6 +5,10 @@
 // create a test array with six letters
 var choices = ["q", "w", "e", "r", "t", "y"];
 
+ // creating variables to hold the number of wins and losses. They start at 0.
+ var wins = 0;
+ var loses = 0;
+
 // Run this function whenever the user presses a key.
 document.onkeyup = function(event) {
 
@@ -18,10 +22,14 @@ document.onkeyup = function(event) {
     alert("The Computer was thinking of: " + computerGuess);
 
     if (keychoice === computerGuess){
-        alert("You clicked " + keychoice + " and the PC thought " + computerGuess + " you win!")
+        alert("You clicked " + keychoice + " and the PC thought " + computerGuess + " you win!");
+        wins++;
+        alert("You have " + wins + " wins");
     }
     else {
-        alert("You clicked " + keychoice + " and the PC thought " + computerGuess + " you lose!")
+        alert("You clicked " + keychoice + " and the PC thought " + computerGuess + " you lose!");
+        loses++;
+        alert("You have " + loses + " loses");
     }
 
 
