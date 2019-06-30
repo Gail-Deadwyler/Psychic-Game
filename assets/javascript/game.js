@@ -1,33 +1,35 @@
-// document.onkeyup = function() {
-//     alert("Hey, you pressed a key!");
-// }
 
-// create a test array with three letters
+// create a test array with six letters
 var choices = ["q", "w", "e", "r", "t", "y"];
 
- // creating variables to hold the number of wins and losses. They start at 0.
- // variable guesses_remaining starts at 9
+ // create variables to hold the number of wins and losses. Initialize to 0
+ // variable guess_limit starts at 3
  var wins = 0;
  var loses = 0;
+ var guess_limit = 3; 
 
-//  var guess_count = 0;
- var guess_limit = 3;
-//  var out_of_guesses = false;
-
- 
-
-// Run this function whenever the user presses a key.
+// Run this function whenever the user presses a key
 document.onkeyup = function(event) {
 
-    // determine what key the user clicks - User Guess
+    // determine what key the user clicks = User Guess
     // convert caps to lowercase
     var keychoice = event.key.toLowerCase();
 
-    // Randomly choose letter from the choices array. This is the Computer's guess.
+    // Randomly choose letter from the choices array = Computer's guess
     var computerGuess = choices[Math.floor((Math.random() * choices.length))];
 
-    alert("You clicked: " + keychoice);
-    alert("The Computer was thinking of: " + computerGuess);
+    // Get the guess ID, put into a variable and add keychoice to HTML with textContent
+    var user_guess = document.getElementById("user_guess");
+    user_guess.textContent = keychoice;
+
+    // Get the computer_guess ID, put into a variable and add computerGuess to HTML with text Content
+    var computer_guess = document.getElementById("computer_guess");
+    computer_guess.textContent = computerGuess;
+
+
+
+    // alert("You clicked: " + keychoice);
+    // alert("The Computer was thinking of: " + computerGuess);
 
     // only start the game if user clicks a letter
     // .indexOf() > -1 means the item is within the array
@@ -41,9 +43,9 @@ document.onkeyup = function(event) {
 
             // if guess limit = 0, increase loses and reset guess limit
             if (guess_limit == 0) {
-                loses++;
-                alert("you have " + loses + " loses");
+                loses++;                
                 guess_limit = 3;
+                alert("you are out of gueses and now have " + loses + " loses");
                 alert ("guess limit is " + guess_limit);
             }
         }
