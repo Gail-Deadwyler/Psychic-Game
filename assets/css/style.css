@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+    
+}
+
+/* body and html styling */
+/* body, html{
+    margin:0;
+    padding:0;
+    
+    } */
+
+/* body background color */
+
+body {
+    width: 700px;
+    margin: 0 auto;
+    background-color: #3c3a38;
+    padding: 40px;    
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 25px;
+}
+
+
+#header {
+    padding:20px;      
+}
+
+h1 {
+    margin: 0;
+    padding: 20px 0;    
+    color: #00539F;
+    text-shadow: 3px 3px 1px black;
+    font-size: 50px;
+  }
+
+  p {
+      padding: 10px;
+  }
+
+#container {
+
+    background: #ffebcd;
+    padding: 10px;
+   
+}

@@ -1,1 +1,2 @@
 # Psychic-Game
+This game was coded with JavaScript. In this game, the user clicks a letter on the keyboard. If the computer "thinks" of the same letter, you win. If not, you lose. The user is allowed nine guesses to win the game and the guesses decrease everytime the user loses. When the user is out of guesses, the guess limit is reset to nine. The HTML page is dynamically updated with the user wins, user losses and the user guesses so far. 
