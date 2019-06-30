@@ -90,6 +90,9 @@ document.onkeyup = function(event) {
         alert("Please click a letter on the keyboard to start the game!");
         guess_limit = 9;
         keychoice_tally = [];
+        
+        document.getElementById("user_guess").textContent = " ";
+        document.getElementById("computer_guess").textContent = " ";
        
 
     }
