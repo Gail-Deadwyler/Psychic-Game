@@ -3,19 +3,10 @@
     
 }
 
-/* body and html styling */
-/* body, html{
-    margin:0;
-    padding:0;
-    
-    } */
-
-/* body background color */
-
 body {
     width: 700px;
     margin: 0 auto;
-    background-color: #3c3a38;
+    background-color: #e2c6aa;
     padding: 40px;    
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 25px;
@@ -42,5 +33,15 @@ h1 {
 
     background: #ffebcd;
     padding: 10px;
+    margin: auto;
+    width: 90%;
+    border: 3px solid #3c8a3c;
    
 }
+
+/* .center {
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+  } */

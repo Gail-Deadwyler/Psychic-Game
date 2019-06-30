@@ -51,11 +51,15 @@ document.onkeyup = function(event) {
             display_keychoice_tally.textContent = keychoice_tally;
 
 
-            // if guess limit = 0, increase loses, reset guess limit, empty out keychoice tally array, display on HTML page
+            // if guess limit = 0, increase loses, reset guess limit, empty out keychoice tally array
+            // clear out computer_guess, clear out user_guess, display on HTML page
             if (guess_limit == 0) {
                 loses++;                
                 guess_limit = 9;
                 keychoice_tally = [];
+
+                document.getElementById("user_guess").textContent = " ";
+                document.getElementById("computer_guess").textContent = " ";
 
                 document.getElementById("user_loses").textContent = loses.toString();
                 document.getElementById("guess_limit").textContent = guess_limit.toString();
@@ -64,10 +68,14 @@ document.onkeyup = function(event) {
         }
         // Match
         // increase wins, reset guess limit, empty out keychoice tally array
+        // clear out computer_guess, clear out user_guess, display on HTML page
         else {
             wins++;
             guess_limit = 9;
             keychoice_tally = [];
+
+            document.getElementById("user_guess").textContent = " ";
+            document.getElementById("computer_guess").textContent = " ";
 
             document.getElementById("user_wins").textContent = wins.toString();
             document.getElementById("guess_limit").textContent = guess_limit.toString();
