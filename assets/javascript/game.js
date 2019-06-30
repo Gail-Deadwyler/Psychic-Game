@@ -1,12 +1,15 @@
 
-// create a test array with six letters
-var choices = ["q", "w", "e", "r", "t", "y"];
+// create a array of the alphabets - thanks to Stack Overflow for this
+var choices = "abcdefghijklmnopqrstuvwxyz".split("");
+// console.log(choices);
 
  // create variables to hold the number of wins and losses. Initialize to 0
- // variable guess_limit starts at 3
+ // variable guess_limit starts at 9
+ // create empty keychoice tally array
  var wins = 0;
  var loses = 0;
- var guess_limit = 3; 
+ var guess_limit = 9; 
+ var keychoice_tally = [];
 
 // Run this function whenever the user presses a key
 document.onkeyup = function(event) {
@@ -14,6 +17,10 @@ document.onkeyup = function(event) {
     // determine what key the user clicks = User Guess
     // convert caps to lowercase
     var keychoice = event.key.toLowerCase();
+
+    // append keychoice to keychoice_tally array
+    keychoice_tally.push(keychoice);
+    // console.log(keychoice_tally);
 
     // Randomly choose letter from the choices array = Computer's guess
     var computerGuess = choices[Math.floor((Math.random() * choices.length))];
@@ -26,45 +33,56 @@ document.onkeyup = function(event) {
     var computer_guess = document.getElementById("computer_guess");
     computer_guess.textContent = computerGuess;
 
-    // start the game only if user clicks a letter otherwise see else statement below
+    // start the game only if user clicks a letter otherwise don't start the game
     // .indexOf() > -1 means the item is within the array
     if (choices.indexOf(keychoice) > -1) {
 
         // if no match
         if (keychoice != computerGuess) {
+
             // decrease guess limit and display on HTML
             guess_limit--;
 
             // thanks to Stack Overflow for this, kept getting [object HTMLSpanElement] instead of my guess limit displayed
-            document.getElementById("guess_limit").textContent = guess_limit.toString();   
+            document.getElementById("guess_limit").textContent = guess_limit.toString(); 
+            
+            // display keychoices so far
+            var display_keychoice_tally = document.getElementById("guesses_so_far");
+            display_keychoice_tally.textContent = keychoice_tally;
 
 
-            // if guess limit = 0, increase loses and reset guess limit, display on HTML page
+            // if guess limit = 0, increase loses, reset guess limit, empty out keychoice tally array, display on HTML page
             if (guess_limit == 0) {
                 loses++;                
-                guess_limit = 3;
+                guess_limit = 9;
+                keychoice_tally = [];
 
                 document.getElementById("user_loses").textContent = loses.toString();
                 document.getElementById("guess_limit").textContent = guess_limit.toString();
-
+                display_keychoice_tally.textContent = keychoice_tally;
             }
         }
         // Match
-        // increase wins and reset guess limit
+        // increase wins, reset guess limit, empty out keychoice tally array
         else {
             wins++;
-            guess_limit = 3;
+            guess_limit = 9;
+            keychoice_tally = [];
 
             document.getElementById("user_wins").textContent = wins.toString();
-            document.getElementById("guess_limit").textContent = guess_limit.toString(); 
+            document.getElementById("guess_limit").textContent = guess_limit.toString();
+            var display_keychoice_tally = document.getElementById("guesses_so_far");
+            display_keychoice_tally.textContent = keychoice_tally; 
         }
     }
 
     // user did not click a letter
-    // reset guess limit
+    // reset guess limit, empty out keychoice tally array
     else {
         alert("Please click a letter on the keyboard to start the game!");
-        guess_limit = 3;
+        guess_limit = 9;
+        keychoice_tally = [];
+       
 
     }
 }
